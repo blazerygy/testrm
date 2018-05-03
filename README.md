@@ -1,7 +1,8 @@
-https://github.com/apache/incubator-mxnet/tree/v0.7.0
 Installing MXNet
 ------------
+
 The following installation instructions have been tested on Ubuntu 14.04
+
 **1. Prerequisites**
 Install the following NVIDIA libraries to setup MXNet with GPU support:
 **(1)** Install CUDA 7.5 following the NVIDIA¡¯s guide ( http://developer.download.nvidia.com/compute/cuda/7.5/Prod/docs/sidebar/CUDA_Installation_Guide_Linux.pdf ).
@@ -59,7 +60,7 @@ cd example/image-classification
 ```
 **(2)** Write IPs to hosts file. This hosts file contains IPs of the machines in the cluster. These machines should be able to communicate with each other without using passwords.
 An example of the contents of the hosts file would be:
-```javascript
+```
 172.30.0.172
 172.31.0.173
 172.30.1.174
@@ -70,14 +71,14 @@ python scp_mxnet.py
 ```
 **3. Set the training data ratio for each worker node**
 Writing training data ratio for each worker node to data_sharding file. Each line in data_sharding file has two digits, which indicate the start and end of the training data, respectively. An example of the contents of the data_sharding file would be (two workers):
-```javascript
+```
 0 0.3
 0.3 1
 ```
 
 **4. Partition workers into multiple groups**
 Writing the grouping results to groups file. Each line in groups file indicate one group, which may has one or more IPs of workers. An example of the contents of the groups file would be (three groups):
-```javascript
+```
 10.10.10.21
 10.10.10.22 10.10.10.23
 10.10.10.24 10.10.10.25 10.10.10.26
@@ -88,7 +89,7 @@ You can start distributed training just run the *.sh in mxnet/example/image-clas
 time ./ gsp_cifar10_inception_small.sh
 ```
 Other models, datasets, and parallelization schemes can be used in similar ways. In the running script, some important parameters are explained as follows:
-```javascript
+```
 -n: denotes the number of worker nodes to be launched.
 -s: denotes the number of parameter server nodes to be launched.
 -i: denotes the network interface to be used
@@ -109,4 +110,4 @@ More information about MXNet can refer to: https://mxnet.incubator.apache.org/in
 
 Support or Contact
 ------------
-If you have any questions, please contact Geyan Ye <gyye@hust.edu.cn>.
+If you have any questions, please contact Geyan Ye (<gyye@hust.edu.cn>).
