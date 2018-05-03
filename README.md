@@ -5,9 +5,10 @@ The following installation instructions have been tested on Ubuntu 14.04
 
 **1. Prerequisites**
 Install the following NVIDIA libraries to setup MXNet with GPU support:
-**(1)** Install CUDA 7.5 following the NVIDIA¡¯s guide ( http://developer.download.nvidia.com/compute/cuda/7.5/Prod/docs/sidebar/CUDA_Installation_Guide_Linux.pdf ).
+**(1)** Install CUDA 7.5 following the NVIDIA's guide ( http://developer.download.nvidia.com/compute/cuda/7.5/Prod/docs/sidebar/CUDA_Installation_Guide_Linux.pdf ).
+
 **(2)** Install cuDNN 5 for CUDA 7.5 following the NVIDIA¡¯s guide ( https://developer.nvidia.com/rdp/cudnn-archive#a-collapse51a  ). You may need to register with NVIDIA for downloading the cuDNN library.
-Note: Make sure to add CUDA install path to LD_LIBRARY_PATH. Example- export LD_LIBRARY_PATH=/usr/local/cuda/lib64/:$LD_LIBRARY_PATH
+Note: Make sure to add CUDA install path to LD_LIBRARY_PATH. Example: export LD_LIBRARY_PATH=/usr/local/cuda/lib64/:$LD_LIBRARY_PATH
 
 **2. Install and Build**
 Building MXNet from source is a 2 step process. Firstly, build the MXNet core shared library, libmxnet.so, from the C++ sources. Secondly, build the language specific bindings. Example - Python bindings
@@ -93,7 +94,7 @@ Other models, datasets, and parallelization schemes can be used in similar ways.
 -n: denotes the number of worker nodes to be launched.
 -s: denotes the number of parameter server nodes to be launched.
 -i: denotes the network interface to be used
---launcher: denotes the mode of communication, here you can use ¡°ssh¡± mode
+--launcher: denotes the mode of communication, here you can use "ssh" mode
 -H: denotes the hosts file to be used
 --data-dir: denotes the location of the datasets
 --batch-size: denotes the batch size of training data to be used
@@ -104,7 +105,7 @@ Other models, datasets, and parallelization schemes can be used in similar ways.
 --gpus: denotes the gpus to be used
 --kv-store: denotes the parallelization scheme to be used. (BSP:dist_sync, ASP:dist_async, GSP:dist_gsync, SSP:dist_ssync)
 --data-allocator: indicates whether to use data sharding strategy. (0:not use, 1:use)
---staleness: denotes the staleness of workers can¡¯t exceed this value
+--staleness: denotes the staleness of workers can't exceed this value
 ```
 More information about MXNet can refer to: https://mxnet.incubator.apache.org/index.html
 
