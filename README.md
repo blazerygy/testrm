@@ -7,7 +7,7 @@ The following installation instructions have been tested on Ubuntu 14.04
 Install the following NVIDIA libraries to setup MXNet with GPU support:
 **(1)** Install CUDA 7.5 following the NVIDIA's guide ( http://developer.download.nvidia.com/compute/cuda/7.5/Prod/docs/sidebar/CUDA_Installation_Guide_Linux.pdf ).
 
-**(2)** Install cuDNN 5 for CUDA 7.5 following the NVIDIA¡¯s guide ( https://developer.nvidia.com/rdp/cudnn-archive#a-collapse51a  ). You may need to register with NVIDIA for downloading the cuDNN library.
+**(2)** Install cuDNN 5 for CUDA 7.5 following the NVIDIA's guide ( https://developer.nvidia.com/rdp/cudnn-archive#a-collapse51a  ). You may need to register with NVIDIA for downloading the cuDNN library.
 Note: Make sure to add CUDA install path to LD_LIBRARY_PATH. Example: export LD_LIBRARY_PATH=/usr/local/cuda/lib64/:$LD_LIBRARY_PATH
 
 **2. Install and Build**
