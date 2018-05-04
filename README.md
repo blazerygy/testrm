@@ -4,13 +4,16 @@ Installing MXNet
 The following installation instructions have been tested on Ubuntu 14.04
 
 **1. Prerequisites**
+
 Install the following NVIDIA libraries to setup MXNet with GPU support:
+
 **(1)** Install CUDA 7.5 following the NVIDIA's guide ( http://developer.download.nvidia.com/compute/cuda/7.5/Prod/docs/sidebar/CUDA_Installation_Guide_Linux.pdf ).
 
 **(2)** Install cuDNN 5 for CUDA 7.5 following the NVIDIA's guide ( https://developer.nvidia.com/rdp/cudnn-archive#a-collapse51a  ). You may need to register with NVIDIA for downloading the cuDNN library.
 Note: Make sure to add CUDA install path to LD_LIBRARY_PATH. Example: export LD_LIBRARY_PATH=/usr/local/cuda/lib64/:$LD_LIBRARY_PATH
 
 **2. Install and Build**
+
 Building MXNet from source is a 2 step process. Firstly, build the MXNet core shared library, libmxnet.so, from the C++ sources. Secondly, build the language specific bindings. Example - Python bindings
 
 **(1)** Build the MXNet core shared library, libmxnet.so, from the C++ sources
@@ -39,13 +42,14 @@ sudo apt-get install ¨Cy python-setuptools python-pip python-numpy python-scipy 
 - Install the MXNet Python binding.
 ```javascript
 cd python
-sudo python setup.py install develop ¨C-user
+sudo python setup.py install develop --user
 ```
 
 Running MXNet
 ------------
 
 **1. Set up password-less authentication between machines**
+
 If you don't already have an SSH key, generate one via
 ```javascript
 ssh-keygen
@@ -55,6 +59,7 @@ You'll then need to add your public key to each machine, by appending your publi
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
 **2. Copy mxnet to other machines**
+
 **(1)** Change path
 ```javascript
 cd example/image-classification
@@ -62,15 +67,16 @@ cd example/image-classification
 **(2)** Write IPs to hosts file. This hosts file contains IPs of the machines in the cluster. These machines should be able to communicate with each other without using passwords.
 An example of the contents of the hosts file would be:
 ```
-172.30.0.172
-172.31.0.173
-172.30.1.174
+10.10.10.21
+10.10.10.22 
+10.10.10.23
 ```
 **(3)** Send mxnet to other machines, simply run
 ```javascript
 python scp_mxnet.py
 ```
 **3. Set the training data ratio for each worker node**
+
 Writing training data ratio for each worker node to data_sharding file. Each line in data_sharding file has two digits, which indicate the start and end of the training data, respectively. An example of the contents of the data_sharding file would be (two workers):
 ```
 0 0.3
@@ -78,6 +84,7 @@ Writing training data ratio for each worker node to data_sharding file. Each lin
 ```
 
 **4. Partition workers into multiple groups**
+
 Writing the grouping results to groups file. Each line in groups file indicate one group, which may has one or more IPs of workers. An example of the contents of the groups file would be (three groups):
 ```
 10.10.10.21
@@ -85,6 +92,7 @@ Writing the grouping results to groups file. Each line in groups file indicate o
 10.10.10.24 10.10.10.25 10.10.10.26
 ```
 **5. Start distributed training**
+
 You can start distributed training just run the *.sh in mxnet/example/image-classification. For example, if you want to run inception-bn small on Cifar10 using GSP, simply run:
 ```javascript
 time ./ gsp_cifar10_inception_small.sh
