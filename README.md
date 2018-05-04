@@ -77,7 +77,7 @@ python scp_mxnet.py
 ```
 **3. Set the training data ratio for each worker node**
 
-Writing training data ratio for each worker node to data_sharding file. Each line in data_sharding file has two digits, which indicate the start and end of the training data, respectively. An example of the contents of the data_sharding file would be (two workers):
+Write training data ratio for each worker node to data_sharding file. Each line in data_sharding file has two digits, which indicate the start and end of the training data, respectively. An example of the contents of the data_sharding file would be (two workers):
 ```
 0 0.3
 0.3 1
@@ -85,7 +85,7 @@ Writing training data ratio for each worker node to data_sharding file. Each lin
 
 **4. Partition workers into multiple groups**
 
-Writing the grouping results to groups file. Each line in groups file indicate one group, which may has one or more IPs of workers. An example of the contents of the groups file would be (three groups):
+Write the grouping results to groups file. Each line in groups file indicate one group, which may has one or more IPs of workers. An example of the contents of the groups file would be (three groups):
 ```
 10.10.10.21
 10.10.10.22 10.10.10.23
